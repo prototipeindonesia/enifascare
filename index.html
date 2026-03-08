@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>e-NifasCare - Sahabat Ibu Pasca Melahirkan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal-primary: #3dbda7;
+            --pink-accent: #f06292;
+            --bg-soft: linear-gradient(135deg, #f0fbf9 0%, #fff5f8 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-soft);
+        }
+
+        .container {
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        /* Branding Area */
+        .logo-box {
+            flex: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 80%;
+            max-width: 260px;
+            filter: drop-shadow(0 10px 20px rgba(61, 189, 167, 0.15));
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        /* Content Area */
+        .hero-text {
+            flex: 1;
+        }
+
+        .title {
+            font-size: 2.3rem;
+            color: var(--teal-primary);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--pink-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 320px;
+        }
+
+        /* Features */
+        .feature-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .badge {
+            flex: 1;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            background: white;
+            padding: 10px 5px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* CTA */
+        .btn-main {
+            width: 100%;
+            background: var(--teal-primary);
+            color: white;
+            padding: 18px;
+            border-radius: 22px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .btn-main:active {
+            transform: scale(0.97);
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-box">
+            <img src="logo.png" alt="e-NifasCare" class="logo-img">
+        </div>
+
+        <div class="hero-text">
+            <h1 class="title">e-NifasCare</h1>
+            <p class="tagline">Caring for Mothers, Supporting Recovery</p>
+            
+            <div class="info-card">
+                Asisten kesehatan terpercaya untuk mendampingi Ibu selama masa pemulihan 42 hari pasca melahirkan.
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="badge">🚨 Tanda Bahaya</div>
+            <div class="badge">🤱 Nutrisi & ASI</div>
+            <div class="badge">🧠 Support Mental</div>
+        </div>
+
+        <a href="data_diri_ibu.html" class="btn-main">
+            Mulai Monitoring &nbsp; →
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checklist Harian - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --danger: #ff5252;
+            --bg-gradient: linear-gradient(135deg, #f5fffd 0%, #fff0f5 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+            color: #444;
+        }
+
+        .app-container {
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            padding: 25px 20px;
+            background: white;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .instruction {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        /* Question List */
+        .content-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .question-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .options-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .option-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid #eee;
+            background: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #999;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Radio hidden logic */
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked + .option-btn.yes {
+            border-color: var(--danger);
+            background: #fff5f5;
+            color: var(--danger);
+        }
+
+        input[type="radio"]:checked + .option-btn.no {
+            border-color: var(--primary);
+            background: #f0fbf9;
+            color: var(--primary);
+        }
+
+        /* Footer Action */
+        .footer-action {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(0deg, white 70%, transparent 100%);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 18px;
+            border-radius: 22px;
+            border: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3);
+            cursor: pointer;
+        }
+
+        .content-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="top-nav">
+                <a href="materi_edukasi_nifas.html" class="back-btn">←</a>
+                <h2>Checklist Kesehatan</h2>
+            </div>
+            <p class="instruction">Silakan jawab pertanyaan berikut sesuai dengan kondisi Anda hari ini.</p>
+        </header>
+
+        <form class="content-scroll" id="checklistForm">
+            <div class="question-card">
+                <p class="question-text">1. Apakah Anda mengalami keluar darah sangat banyak setelah melahirkan?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q1" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q1" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">2. Apakah pembalut Anda cepat penuh oleh darah (kurang dari 1 jam)?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q2" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q2" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">3. Apakah badan Anda terasa sangat panas atau demam?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q3" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q3" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">4. Apakah Anda merasakan sakit perut yang sangat kuat?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q4" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q4" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">5. Apakah darah atau cairan dari jalan lahir berbau sangat tidak sedap?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q5" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q5" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">6. Apakah Anda mengalami sakit kepala yang sangat berat?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q6" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q6" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">7. Apakah penglihatan Anda terasa kabur atau mata berkunang-kunang?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q7" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q7" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">8. Apakah kaki Anda bengkak dan terasa sakit?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q8" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q8" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">9. Apakah Anda merasa sesak napas atau dada terasa sakit?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q9" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q9" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">10. Apakah payudara Anda terasa bengkak, merah, dan sangat sakit saat dipegang?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q10" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q10" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">11. Apakah Anda merasa sangat lemas atau hampir pingsan?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q11" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q11" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">12. Apakah Anda merasa sangat sedih atau sering menangis tanpa alasan jelas?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q12" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q12" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">13. Apakah Anda merasa sangat cemas atau khawatir berlebihan?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q13" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q13" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">14. Apakah Anda merasa sulit tidur walaupun bayi sedang tidur?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q14" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q14" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">15. Apakah Anda merasa tidak bersemangat atau tidak ingin melakukan apa pun?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q15" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q15" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">16. Apakah Anda merasa tidak mampu merawat bayi atau merasa terbebani?</p>
+                <div class="options-group">
+                    <label><input type="radio" name="q16" value="ya"><span class="option-btn yes">YA</span></label>
+                    <label><input type="radio" name="q16" value="tidak" checked><span class="option-btn no">TIDAK</span></label>
+                </div>
+            </div>
+        </form>
+
+        <div class="footer-action">
+            <button class="btn-submit" onclick="analyzeResults()">Kirim & Analisis</button>
+        </div>
+    </div>
+
+    <script>
+        function analyzeResults() {
+            const form = document.getElementById('checklistForm');
+            const formData = new FormData(form);
+            let hasDanger = false;
+
+            for (let [key, value] of formData.entries()) {
+                if (value === 'ya') {
+                    hasDanger = true;
+                    break;
+                }
+            }
+
+            // Simulasikan logika deteksi sesuai flowchart
+            if (hasDanger) {
+                // Jika ada jawaban YA (Sesuai source: 5 & 6)
+                window.location.href = 'logika_deteksi_bahaya.html?status=danger';
+            } else {
+                window.location.href = 'logika_deteksi_bahaya.html?status=safe';
+            }
+        }
+    </script>
+</body>
+</html>

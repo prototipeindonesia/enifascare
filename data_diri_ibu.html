@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profil Ibu - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-gradient: linear-gradient(135deg, #f5fffd 0%, #fff0f5 100%);
+            --white-glass: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+        }
+
+        .app-container {
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            position: relative;
+        }
+
+        /* Header Area */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        p.subtitle {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* Form Area */
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .input-group {
+            background: var(--white-glass);
+            backdrop-filter: blur(10px);
+            padding: 12px 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .input-group input, .input-group textarea {
+            border: none;
+            background: transparent;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            color: #444;
+            font-weight: 600;
+            outline: none;
+            width: 100%;
+        }
+
+        .input-group textarea {
+            resize: none;
+            height: 45px;
+        }
+
+        /* Row for Name & Age */
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Highlight untuk Kontak Darurat */
+        .emergency {
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Action Button */
+        .footer {
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .btn-next {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            border-radius: 20px;
+            border: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-next:active {
+            transform: scale(0.96);
+            background: #34a38f;
+        }
+
+        /* Dekorasi */
+        .circle-bg {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            opacity: 0.05;
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="circle-bg"></div>
+        <a href="index.html" class="back-btn">←</a>
+
+        <div class="header">
+            <h2>Data Diri Ibu</h2>
+            <p class="subtitle">Mari lengkapi profil Anda untuk memulai</p>
+        </div>
+
+        <form id="profileForm" onsubmit="event.preventDefault(); window.location.href='input_hari_nifas.html';">
+            <div class="input-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Contoh: Siti Aminah" required>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group" style="flex: 2;">
+                    <label>Umur</label>
+                    <input type="number" placeholder="28" required>
+                </div>
+                <div class="input-group" style="flex: 3;">
+                    <label>Tahun</label>
+                    <input type="text" value="Tahun" readonly style="color: #999;">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Alamat Tinggal</label>
+                <textarea placeholder="Tuliskan alamat lengkap..."></textarea>
+            </div>
+
+            <div class="input-group emergency">
+                <label style="color: var(--accent);">Kontak Darurat (Suami/Keluarga)</label>
+                <input type="tel" placeholder="0812xxxx" required>
+            </div>
+        </form>
+
+        <div class="footer">
+            <button type="submit" form="profileForm" class="btn-next">
+                Lanjutkan &nbsp; →
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

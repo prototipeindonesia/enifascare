@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fase Nifas - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-gradient: linear-gradient(135deg, #f5fffd 0%, #fff0f5 100%);
+            --white-glass: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+        }
+
+        .app-container {
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 25px;
+            position: relative;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* Header Area */
+        .header {
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .info-card {
+            background: var(--white-glass);
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Counter Section */
+        .counter-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .counter-display {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(61, 189, 167, 0.15);
+            border: 8px solid #e0f2f1;
+            position: relative;
+        }
+
+        .counter-display span.number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .counter-display span.label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .controls {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .btn-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-circle:active {
+            transform: scale(0.9);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Message Box */
+        .fase-info {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #e0f2f1;
+            padding: 8px 20px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+        }
+
+        .btn-process {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 18px;
+            border-radius: 22px;
+            border: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-process:active {
+            transform: scale(0.96);
+        }
+
+        /* Decoration */
+        .blob {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <a href="data_diri_ibu.html" class="back-btn">←</a>
+
+        <div class="header">
+            <h2>Masa Nifas</h2>
+            <div class="info-card">
+                Sudah berapa hari sejak hari persalinan Ibu? 
+            </div>
+        </div>
+
+        <div class="counter-wrapper">
+            <div class="counter-display">
+                <span class="number" id="dayCount">1</span>
+                <span class="label">Hari</span>
+            </div>
+            
+            <div class="controls">
+                <button class="btn-circle" onclick="updateCount(-1)">−</button>
+                <button class="btn-circle" onclick="updateCount(1)">+</button>
+            </div>
+
+            <div id="faseTag" class="fase-info">Fase Immediate (24 Jam)</div>
+        </div>
+
+        <div class="footer">
+            <button class="btn-process" onclick="goToProcessing()">
+                Sesuaikan Materi <span>✨</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let count = 1;
+        const dayDisplay = document.getElementById('dayCount');
+        const faseTag = document.getElementById('faseTag');
+
+        function updateCount(val) {
+            count += val;
+            if (count < 1) count = 1;
+            if (count > 42) count = 42; // Batas akhir masa nifas
+            
+            dayDisplay.innerText = count;
+            
+            // Update Label Fase
+            if (count === 1) {
+                faseTag.innerText = "Fase Immediate (24 Jam)";
+            } else if (count <= 7) {
+                faseTag.innerText = "Fase Early Postpartum";
+            } else {
+                faseTag.innerText = "Fase Late Postpartum";
+            }
+        }
+
+        function goToProcessing() {
+            // Simulasi proses adaptasi modul sesuai flowchart
+            window.location.href = 'proses_adaptasi_modul.html';
+        }
+    </script>
+</body>
+</html>

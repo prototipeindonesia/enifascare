@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menyiapkan Modul - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-gradient: linear-gradient(135deg, #f5fffd 0%, #fff0f5 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+        }
+
+        .app-container {
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Loading Animation */
+        .loader-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 40px;
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 1.5s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .circle-loader {
+            width: 100%;
+            height: 100%;
+            border: 8px solid rgba(61, 189, 167, 0.1);
+            border-top: 8px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        /* Progress Info */
+        .status-text {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            height: 1.5em; /* Tetap stabil saat teks berubah */
+        }
+
+        .sub-status {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            max-width: 250px;
+            height: 8px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Floating Circles Decoration */
+        .decor {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="decor" style="width: 200px; height: 200px; top: -50px; right: -50px;"></div>
+        <div class="decor" style="width: 150px; height: 150px; bottom: -30px; left: -30px; background: var(--accent);"></div>
+
+        <div class="loader-wrapper">
+            <div class="circle-loader"></div>
+            <div class="heart-icon">❤️</div>
+        </div>
+
+        <div class="status-text" id="statusTitle">Menganalisis Data...</div>
+        <p class="sub-status" id="statusSub">Mohon tunggu sebentar, kami sedang menyiapkan materi terbaik untuk Ibu.</p>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <script>
+        const statusTitle = document.getElementById('statusTitle');
+        const statusSub = document.getElementById('statusSub');
+        const progressBar = document.getElementById('progressBar');
+
+        const steps = [
+            { 
+                progress: 30, 
+                title: "Menyaring Database...", 
+                sub: "Mencari materi yang sesuai dengan hari nifas Ibu." 
+            },
+            { 
+                progress: 65, 
+                title: "Menyiapkan Edukasi...", 
+                sub: "Menyusun panduan nutrisi dan aktivitas fisik." 
+            },
+            { 
+                progress: 90, 
+                title: "Hampir Selesai!", 
+                sub: "Menyiapkan lembar checklist kesehatan harian." 
+            },
+            { 
+                progress: 100, 
+                title: "Siap!", 
+                sub: "Mari mulai perjalanan nifas yang sehat." 
+            }
+        ];
+
+        let stepIndex = 0;
+
+        function runLoader() {
+            if (stepIndex < steps.length) {
+                const current = steps[stepIndex];
+                progressBar.style.width = current.progress + "%";
+                statusTitle.innerText = current.title;
+                statusSub.innerText = current.sub;
+                
+                stepIndex++;
+                
+                // Durasi per langkah (simulasi proses)
+                let delay = stepIndex === steps.length ? 1000 : 1500;
+                
+                setTimeout(runLoader, delay);
+            } else {
+                // Redirect ke halaman inti setelah loading selesai
+                setTimeout(() => {
+                    window.location.href = 'materi_edukasi_nifas.html';
+                }, 800);
+            }
+        }
+
+        // Mulai loading saat halaman dimuat
+        window.onload = runLoader;
+    </script>
+</body>
+</html>

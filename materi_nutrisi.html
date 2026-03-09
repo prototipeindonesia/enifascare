@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nutrisi Ibu Nifas - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-soft: #f5fffd;
+            --text-dark: #444;
+            --white: #ffffff;
+            --orange: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-nav {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .materi-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--bg-soft);
+            padding-bottom: 5px;
+        }
+
+        .nutrisi-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .nutrisi-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #fff9f0;
+            padding: 15px;
+            border-radius: 18px;
+        }
+
+        .icon-circle {
+            background: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .nutrisi-text h4 {
+            font-size: 1rem;
+            color: var(--orange);
+            margin-bottom: 3px;
+        }
+
+        .nutrisi-text p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .tips-box {
+            background: #e0f2f1;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .tips-box h5 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            font-size: 0.85rem;
+            color: #34495e;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-nav">
+            <a href="materi_edukasi_nifas.html" class="back-nav">← Kembali</a>
+        </div>
+
+        <div class="content-card">
+            <h1 class="materi-title">Nutrisi Ibu Nifas</h1>
+            
+            <p class="intro-text">
+                Makanan bergizi sangat penting untuk memulihkan tenaga Ibu dan meningkatkan kualitas serta jumlah ASI bagi bayi.
+            </p>
+
+            <div class="image-container">
+                <img src="nutrisi.png" alt="Panduan Nutrisi Ibu Menyusui">
+            </div>
+
+            <div class="section-content">
+                <h2 class="section-subtitle">Zat Gizi yang Dibutuhkan</h2>
+                
+                <div class="nutrisi-grid">
+                    <div class="nutrisi-item">
+                        <div class="icon-circle">🥩</div>
+                        <div class="nutrisi-text">
+                            <h4>Protein</h4>
+                            <p>Penting untuk memperbaiki jaringan tubuh dan mempercepat penyembuhan luka jahitan. Contoh: Ikan, telur, daging, tempe, dan tahu.</p>
+                        </div>
+                    </div>
+
+                    <div class="nutrisi-item">
+                        <div class="icon-circle">🥬</div>
+                        <div class="nutrisi-text">
+                            <h4>Zat Besi</h4>
+                            <p>Mencegah lemas dan pusing (anemia) setelah kehilangan darah saat persalinan. Contoh: Bayam, kangkung, dan hati ayam.</p>
+                        </div>
+                    </div>
+
+                    <div class="nutrisi-item">
+                        <div class="icon-circle">🥛</div>
+                        <div class="nutrisi-text">
+                            <h4>Kalsium</h4>
+                            <p>Menjaga kesehatan tulang Ibu dan pembentukan tulang bayi. Contoh: Susu, keju, dan kacang-kacangan.</p>
+                        </div>
+                    </div>
+
+                    <div class="nutrisi-item">
+                        <div class="icon-circle">💧</div>
+                        <div class="nutrisi-text">
+                            <h4>Cairan</h4>
+                            <p>Ibu menyusui perlu minum lebih banyak (sekitar 3 liter/hari) agar tidak dehidrasi dan ASI lancar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-box">
+                    <h5>💡 Tips Pola Makan</h5>
+                    <ul class="tips-list">
+                        <li>Makan dengan porsi kecil tapi sering jika masih merasa mual.</li>
+                        <li>Hindari makanan yang terlalu pedas atau bergas jika membuat bayi tidak nyaman.</li>
+                        <li>Pastikan sayur dan buah selalu ada dalam piring makan.</li>
+                        <li>Istirahat yang cukup juga membantu penyerapan nutrisi lebih baik.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

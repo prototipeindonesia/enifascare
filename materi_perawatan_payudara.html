@@ -25,7 +25,7 @@
         .content-card { background: var(--white); border-radius: 30px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .materi-title { color: var(--primary); font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; text-align: center; }
 
-        /* Horizontal Scroll Gallery Tanpa Keterangan */
+        /* Horizontal Scroll Gallery */
         .scroll-container {
             display: flex;
             overflow-x: auto;
@@ -34,10 +34,7 @@
             scroll-snap-type: x mandatory;
             scrollbar-width: none; 
         }
-
-        .scroll-container::-webkit-scrollbar {
-            display: none; 
-        }
+        .scroll-container::-webkit-scrollbar { display: none; }
 
         .img-card {
             flex: 0 0 85%; 
@@ -47,22 +44,44 @@
             overflow: hidden;
             border: 1px solid #e0f2f1;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            cursor: zoom-in; /* Menandakan gambar bisa diklik */
         }
 
         .img-card img {
             width: 100%;
-            height: 220px; /* Ukuran gambar sedikit lebih besar karena tanpa teks */
+            height: 220px;
             object-fit: cover;
             display: block;
         }
 
         .scroll-hint {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #aaa;
-            margin-top: -15px;
-            margin-bottom: 25px;
-            font-weight: 600;
+            text-align: center; font-size: 0.75rem; color: #aaa; margin-top: -15px; margin-bottom: 25px; font-weight: 600;
+        }
+
+        /* Lightbox Overlay */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #lightbox img {
+            max-width: 100%;
+            max-height: 80%;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px; right: 30px;
+            color: white; font-size: 2rem; font-weight: bold;
+            cursor: pointer;
         }
 
         .section-subtitle { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
@@ -79,48 +98,62 @@
 
     <div class="container">
         <div class="header-nav">
-            <a href="materi_edukasi_nifas.html" class="back-nav">← Kembali</a>
+            <a href="materi_edukasi.html" class="back-nav">← Kembali</a>
         </div>
 
         <div class="content-card">
             <h1 class="materi-title">Perawatan Payudara</h1>
             
             <div class="scroll-container">
-                <div class="img-card">
+                <div class="img-card" onclick="openLightbox('payudara1.jpg')">
                     <img src="payudara1.jpg" alt="Langkah 1">
                 </div>
-                <div class="img-card">
+                <div class="img-card" onclick="openLightbox('payudara2.jpg')">
                     <img src="payudara2.jpg" alt="Langkah 2">
                 </div>
-                <div class="img-card">
+                <div class="img-card" onclick="openLightbox('payudara3.jpg')">
                     <img src="payudara3.jpg" alt="Langkah 3">
                 </div>
-                <div class="img-card">
+                <div class="img-card" onclick="openLightbox('payudara4.jpg')">
                     <img src="payudara4.jpg" alt="Langkah 4">
                 </div>
             </div>
-            <p class="scroll-hint">Geser untuk melihat langkah selanjutnya ⮕</p>
+            <p class="scroll-hint">Geser & klik gambar untuk memperbesar ⮕</p>
 
             <div class="section-content">
                 <h2 class="section-subtitle">Panduan Perawatan:</h2>
-                
                 <div class="step-item">
                     <h4>Kebersihan Rutin</h4>
-                    <p>Bersihkan puting susu secara lembut menggunakan kapas air hangat. Menjaga kebersihan area ini sangat penting untuk kelancaran aliran ASI.</p>
+                    <p>Bersihkan puting susu secara lembut menggunakan kapas air hangat.</p>
                 </div>
-
                 <div class="step-item">
                     <h4>Kenyamanan Ibu</h4>
-                    <p>Gunakan bra yang menyangga dengan baik dan berbahan katun. Hindari bra yang terlalu ketat agar tidak menyumbat kelenjar susu.</p>
+                    <p>Gunakan bra yang menyangga dengan baik dan berbahan katun.</p>
                 </div>
 
                 <div class="warning-box">
                     <h5>🚨 Waspada Mastitis:</h5>
-                    <p>Hubungi tenaga kesehatan jika payudara terasa sangat bengkak, memerah, panas, atau jika Ibu mengalami demam menggigil.</p>
+                    <p>Hubungi tenaga kesehatan jika payudara terasa bengkak keras, memerah, atau Ibu mengalami demam.</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>

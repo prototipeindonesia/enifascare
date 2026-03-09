@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Perawatan Luka Jahitan - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-soft: #f5fffd;
+            --text-dark: #444;
+            --white: #ffffff;
+            --blue-soft: #e3f2fd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-nav {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .materi-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .care-list {
+            margin-bottom: 25px;
+        }
+
+        .care-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            padding: 15px;
+            background: var(--blue-soft);
+            border-radius: 18px;
+            align-items: center;
+        }
+
+        .care-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .care-text p {
+            font-size: 0.85rem;
+            color: #455a64;
+        }
+
+        .warning-box {
+            background: #fff5f5;
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid #ffcdd2;
+        }
+
+        .warning-box h5 {
+            color: #d32f2f;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box li {
+            font-size: 0.8rem;
+            color: #b71c1c;
+            margin-left: 15px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-nav">
+            <a href="materi_edukasi_nifas.html" class="back-nav">← Kembali</a>
+        </div>
+
+        <div class="content-card">
+            <h1 class="materi-title">Perawatan Luka</h1>
+            
+            <p class="intro-text">
+                Menjaga kebersihan area luka jahitan (perineum) sangat penting agar luka cepat kering dan mencegah terjadinya infeksi.
+            </p>
+
+            <div class="image-container">
+                <img src="luka_jahitan.png" alt="Ilustrasi Perawatan Luka">
+            </div>
+
+            <div class="section-content">
+                <h2 class="section-subtitle">Cara Merawat Luka:</h2>
+                
+                <div class="care-list">
+                    <div class="care-item">
+                        <div class="care-icon">🚿</div>
+                        <div class="care-text">
+                            <p>Bersihkan area luka dengan air bersih setiap kali selesai buang air kecil atau buang air besar.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-item">
+                        <div class="care-icon">🧻</div>
+                        <div class="care-text">
+                            <p>Keringkan dengan lembut menggunakan tisu atau handuk bersih dengan cara ditepuk-tepuk (jangan digosok).</p>
+                        </div>
+                    </div>
+
+                    <div class="care-item">
+                        <div class="care-icon">🔁</div>
+                        <div class="care-text">
+                            <p>Ganti pembalut secara teratur agar area luka tetap bersih dan tidak lembap.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-item">
+                        <div class="care-icon">🧼</div>
+                        <div class="care-text">
+                            <p>Selalu cuci tangan menggunakan sabun sebelum dan sesudah membersihkan luka.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-item">
+                        <div class="care-icon">👙</div>
+                        <div class="care-text">
+                            <p>Gunakan pakaian dalam dari bahan katun yang bersih, nyaman, dan tidak terlalu ketat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h5>🚨 Tanda Infeksi Luka:</h5>
+                    <ul style="list-style-type: disc; padding-left: 10px;">
+                        <li>Luka terasa sangat nyeri atau membengkak.</li>
+                        <li>Keluar cairan bernanah dari area jahitan.</li>
+                        <li>Luka berbau tidak sedap.</li>
+                        <li>Ibu mengalami demam tinggi.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

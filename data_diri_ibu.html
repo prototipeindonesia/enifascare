@@ -163,26 +163,17 @@
     </style>
 </head>
 <body>
-
     <div class="app-container">
-        <div class="circle-bg"></div>
-        <a href="index.html" class="back-btn">←</a>
-
-        <div class="header">
-            <h2>Data Diri Ibu</h2>
-            <p class="subtitle">Mari lengkapi profil Anda untuk memulai</p>
-        </div>
-
-        <form id="profileForm" onsubmit="event.preventDefault(); window.location.href='input_hari_nifas.html';">
+        <form id="profileForm">
             <div class="input-group">
                 <label>Nama Lengkap</label>
-                <input type="text" placeholder="Contoh: Siti Aminah" required>
+                <input type="text" id="nama" placeholder="Contoh: Siti Aminah" required>
             </div>
 
             <div class="form-row">
                 <div class="input-group" style="flex: 2;">
                     <label>Umur</label>
-                    <input type="number" placeholder="28" required>
+                    <input type="number" id="umur" placeholder="28" required>
                 </div>
                 <div class="input-group" style="flex: 3;">
                     <label>Tahun</label>
@@ -192,21 +183,62 @@
 
             <div class="input-group">
                 <label>Alamat Tinggal</label>
-                <textarea placeholder="Tuliskan alamat lengkap..."></textarea>
+                <textarea id="alamat" placeholder="Tuliskan alamat lengkap..."></textarea>
             </div>
 
             <div class="input-group emergency">
                 <label style="color: var(--accent);">Kontak Darurat (Suami/Keluarga)</label>
-                <input type="tel" placeholder="0812xxxx" required>
+                <input type="tel" id="kontak" placeholder="0812xxxx" required>
             </div>
         </form>
 
         <div class="footer">
-            <button type="submit" form="profileForm" class="btn-next">
+            <button type="submit" form="profileForm" id="submitBtn" class="btn-next">
                 Lanjutkan &nbsp; →
             </button>
         </div>
     </div>
 
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyw1f6Kxiz_CCBqXK9lgYhXIWzqxK4CtvjD2zKX0rPxeZurxQ59x1Njfcg_ADXKeXV3/exec';
+        const form = document.getElementById('profileForm');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Ubah teks tombol saat loading
+            btn.disabled = true;
+            btn.innerHTML = "Menyimpan...";
+
+            const data = {
+                nama: document.getElementById('nama').value,
+                umur: document.getElementById('umur').value,
+                alamat: document.getElementById('alamat').value,
+                kontak: document.getElementById('kontak').value
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Penting untuk Apps Script
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(() => {
+                // Simpan ke LocalStorage agar data bisa dipanggil di halaman lain
+                localStorage.setItem('namaIbu', data.nama);
+                // Pindah halaman
+                window.location.href = 'input_hari_nifas.html';
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Gagal menyimpan data, periksa koneksi internet Anda.');
+                btn.disabled = false;
+                btn.innerHTML = "Lanjutkan &nbsp; →";
+            });
+        });
+    </script>
 </body>
 </html>

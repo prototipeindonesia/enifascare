@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Perawatan Payudara - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-soft: #f5fffd;
+            --text-dark: #444;
+            --white: #ffffff;
+            --warning-bg: #fff3e0;
+            --warning-border: #ff9800;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Quicksand', sans-serif; background-color: var(--bg-soft); color: var(--text-dark); line-height: 1.6; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; padding-bottom: 40px; }
+        .header-nav { display: flex; align-items: center; margin-bottom: 20px; }
+        .back-nav { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+
+        .content-card { background: var(--white); border-radius: 30px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .materi-title { color: var(--primary); font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; text-align: center; }
+
+        /* Horizontal Scroll Gallery Tanpa Keterangan */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 5px 5px 25px 5px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; 
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .img-card {
+            flex: 0 0 85%; 
+            scroll-snap-align: center;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e0f2f1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 220px; /* Ukuran gambar sedikit lebih besar karena tanpa teks */
+            object-fit: cover;
+            display: block;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .section-subtitle { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+        .step-item { background: #fff9fb; border-left: 4px solid var(--accent); padding: 15px; border-radius: 15px; margin-bottom: 15px; }
+        .step-item h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 5px; }
+        .step-item p { font-size: 0.85rem; color: #666; }
+
+        .warning-box { background: var(--warning-bg); padding: 18px; border-radius: 20px; border: 1px dashed var(--warning-border); margin-top: 25px; }
+        .warning-box h5 { color: #e65100; font-size: 0.95rem; margin-bottom: 5px; }
+        .warning-box p { font-size: 0.8rem; color: #6d4c41; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-nav">
+            <a href="materi_edukasi.html" class="back-nav">← Kembali</a>
+        </div>
+
+        <div class="content-card">
+            <h1 class="materi-title">Perawatan Payudara</h1>
+            
+            <div class="scroll-container">
+                <div class="img-card">
+                    <img src="payudara1.jpg" alt="Langkah 1">
+                </div>
+                <div class="img-card">
+                    <img src="payudara2.jpg" alt="Langkah 2">
+                </div>
+                <div class="img-card">
+                    <img src="payudara3.jpg" alt="Langkah 3">
+                </div>
+                <div class="img-card">
+                    <img src="payudara4.jpg" alt="Langkah 4">
+                </div>
+            </div>
+            <p class="scroll-hint">Geser untuk melihat langkah selanjutnya ⮕</p>
+
+            <div class="section-content">
+                <h2 class="section-subtitle">Panduan Perawatan:</h2>
+                
+                <div class="step-item">
+                    <h4>Kebersihan Rutin</h4>
+                    <p>Bersihkan puting susu secara lembut menggunakan kapas air hangat. Menjaga kebersihan area ini sangat penting untuk kelancaran aliran ASI.</p>
+                </div>
+
+                <div class="step-item">
+                    <h4>Kenyamanan Ibu</h4>
+                    <p>Gunakan bra yang menyangga dengan baik dan berbahan katun. Hindari bra yang terlalu ketat agar tidak menyumbat kelenjar susu.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h5>🚨 Waspada Mastitis:</h5>
+                    <p>Hubungi tenaga kesehatan jika payudara terasa sangat bengkak, memerah, panas, atau jika Ibu mengalami demam menggigil.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

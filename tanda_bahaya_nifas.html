@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tanda Bahaya Nifas - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --danger: #d32f2f;
+            --bg-soft: #fff5f5;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background-color: var(--bg-soft); color: #333; line-height: 1.5; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; }
+        .back-nav { text-decoration: none; color: var(--danger); font-weight: 700; display: block; margin-bottom: 20px; }
+
+        .content-card { background: var(--white); border-radius: 30px; padding: 25px; box-shadow: 0 10px 30px rgba(211,47,47,0.1); }
+        h1 { color: var(--danger); font-size: 1.4rem; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 20px; }
+
+        .infographic-box { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 25px; border: 1px solid #ffcdd2; }
+        .infographic-box img { width: 100%; height: auto; display: block; }
+
+        .warning-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; }
+        .warning-item { background: #fdf2f2; padding: 10px; border-radius: 15px; text-align: center; border: 1px solid #ffeb3b; }
+        .warning-item p { font-size: 0.75rem; font-weight: 600; color: #c62828; }
+
+        .emergency-call { background: var(--danger); color: white; padding: 20px; border-radius: 20px; text-align: center; }
+        .emergency-call h3 { font-size: 1rem; margin-bottom: 5px; }
+        .emergency-call p { font-size: 0.8rem; opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="materi_edukasi_nifas.html" class="back-nav">← Kembali</a>
+        
+        <div class="content-card">
+            <h1>Tanda Bahaya Ibu Nifas</h1>
+            <p class="subtitle">Jika muncul tanda berikut, segera dapatkan pertolongan medis!</p>
+
+            <div class="infographic-box">
+                <img src="tanda_bahaya_nifas.png" alt="Infografis Tanda Bahaya Nifas">
+            </div>
+
+            <div class="warning-list">
+                <div class="warning-item"><p>Perdarahan Hebat</p></div>
+                <div class="warning-item"><p>Demam Tinggi >38°C</p></div>
+                <div class="warning-item"><p>Sakit Perut Hebat</p></div>
+                <div class="warning-item"><p>Pusing & Pandangan Kabur</p></div>
+                <div class="warning-item"><p>Kaki Bengkak</p></div>
+                <div class="warning-item"><p>Cairan Berbau Busuk</p></div>
+            </div>
+
+            <div class="emergency-call">
+                <h3>⚠️ JANGAN TUNDA!</h3>
+                <p>Segera hubungi bidan, dokter, atau fasilitas kesehatan terdekat jika Ibu mengalami salah satu tanda di atas.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

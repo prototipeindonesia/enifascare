@@ -12,6 +12,7 @@
             --bg-gradient: linear-gradient(135deg, #f5fffd 0%, #fff0f5 100%);
             --white-glass: rgba(255, 255, 255, 0.9);
             --danger: #ff5252;
+            --warning: #ff9800;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -28,6 +29,37 @@
         .content-scroll { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 100px; }
         .section-title { font-size: 0.85rem; font-weight: 700; color: #777; margin: 15px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* Highlight Section for New Buttons */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .btn-materi-utama {
+            padding: 15px 10px;
+            border-radius: 18px;
+            border: none;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .btn-nifas { background: var(--primary); }
+        .btn-bahaya { background: var(--danger); }
+        .btn-materi-utama span { font-size: 1.4rem; }
+
+        /* Materi Card */
         .materi-card {
             background: var(--white-glass); border-radius: 20px; padding: 15px; margin-bottom: 12px;
             display: flex; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.6);
@@ -57,6 +89,19 @@
         </header>
 
         <main class="content-scroll">
+            
+            <p class="section-title">Informasi Dasar</p>
+            <div class="highlight-grid">
+                <button class="btn-materi-utama btn-nifas" onclick="location.href='pengertian_nifas.html'">
+                    <span>ℹ️</span>
+                    Masa Nifas
+                </button>
+                <button class="btn-materi-utama btn-bahaya" onclick="location.href='tanda_bahaya_nifas.html'">
+                    <span>🚨</span>
+                    Tanda Bahaya
+                </button>
+            </div>
+
             <p class="section-title">Pemulihan Fisik</p>
             <div class="materi-card" onclick="location.href='materi_lochea.html'">
                 <div class="icon-box">🩸</div>

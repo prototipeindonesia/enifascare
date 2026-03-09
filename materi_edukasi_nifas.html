@@ -14,134 +14,38 @@
             --danger: #ff5252;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body, html { height: 100%; width: 100%; overflow: hidden; font-family: 'Quicksand', sans-serif; background: var(--bg-gradient); }
+        .app-container { height: 100dvh; display: flex; flex-direction: column; position: relative; }
 
-        body, html {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            font-family: 'Quicksand', sans-serif;
-            background: var(--bg-gradient);
-        }
-
-        .app-container {
-            height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        /* Header */
-        .header {
-            padding: 25px 20px 15px;
-            background: white;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
-
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
+        .header { padding: 25px 20px 15px; background: white; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 10; }
+        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .back-btn { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem; }
-        
-        .exit-btn { 
-            text-decoration: none; 
-            color: var(--danger); 
-            font-weight: 700; 
-            font-size: 0.9rem;
-            padding: 5px 10px;
-            border: 1.5px solid var(--danger);
-            border-radius: 12px;
-        }
-
+        .exit-btn { text-decoration: none; color: var(--danger); font-weight: 700; font-size: 0.8rem; padding: 5px 10px; border: 1.5px solid var(--danger); border-radius: 12px; }
         .day-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
-        
         h2 { color: var(--primary); font-size: 1.4rem; font-weight: 700; margin-top: 5px; }
 
-        /* Scrollable Content */
-        .content-scroll {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            padding-bottom: 100px;
-        }
+        .content-scroll { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 100px; }
+        .section-title { font-size: 0.85rem; font-weight: 700; color: #777; margin: 15px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .section-title { font-size: 0.9rem; font-weight: 700; color: #777; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Materi Card */
         .materi-card {
-            background: var(--white-glass);
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-            cursor: pointer;
-            transition: 0.2s;
+            background: var(--white-glass); border-radius: 20px; padding: 15px; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03); cursor: pointer; transition: 0.2s;
         }
-
         .materi-card:active { transform: scale(0.97); background: white; }
-        .icon-box { width: 50px; height: 50px; background: #e0f2f1; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .icon-box { width: 45px; height: 45px; background: #e0f2f1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
         .materi-info { flex: 1; }
-        .materi-info h3 { font-size: 0.95rem; color: #444; margin-bottom: 3px; }
-        .materi-info p { font-size: 0.75rem; color: #888; }
-        .play-btn { color: var(--accent); font-size: 1.2rem; }
+        .materi-info h3 { font-size: 0.9rem; color: #444; margin-bottom: 2px; }
+        .materi-info p { font-size: 0.7rem; color: #888; }
+        .play-btn { color: var(--accent); font-size: 1.1rem; }
 
-        /* Floating Modal / Pop-up */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            display: none;
-            justify-content: center;
-            align-items: flex-end;
-            z-index: 100;
-        }
-
-        .modal-content {
-            background: white;
-            width: 100%;
-            max-height: 80vh;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            padding: 30px 25px;
-            overflow-y: auto;
-            animation: slideUp 0.4s ease-out;
-        }
-
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .modal-title { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
-        .close-modal { font-size: 1.5rem; color: #ccc; cursor: pointer; }
-        .modal-body { font-size: 0.95rem; color: #555; line-height: 1.6; }
-        .modal-body ul { margin-left: 20px; margin-top: 10px; }
-        .modal-body li { margin-bottom: 8px; }
-
-        /* Footer */
         .footer-action { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(0deg, white 60%, transparent 100%); z-index: 10; }
-        .btn-checklist { width: 100%; background: var(--primary); color: white; padding: 18px; border-radius: 20px; border: none; font-weight: 700; font-size: 1rem; box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px; }
-
+        .btn-checklist { width: 100%; background: var(--primary); color: white; padding: 18px; border-radius: 20px; border: none; font-weight: 700; font-size: 1rem; box-shadow: 0 10px 25px rgba(61, 189, 167, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;}
         .content-scroll::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body>
-
     <div class="app-container">
         <header class="header">
             <div class="top-nav">
@@ -153,124 +57,44 @@
         </header>
 
         <main class="content-scroll">
-            <p class="section-title">Modul Utama</p>
-
-            <div class="materi-card" onclick="openMateri('lochea')">
+            <p class="section-title">Pemulihan Fisik</p>
+            <div class="materi-card" onclick="location.href='materi_lochea.html'">
                 <div class="icon-box">🩸</div>
-                <div class="materi-info">
-                    <h3>Mengenal Lochea</h3>
-                    <p>Warna dan jenis darah nifas normal.</p>
-                </div>
+                <div class="materi-info"><h3>Mengenal Lochea</h3><p>Warna dan jenis darah nifas normal.</p></div>
                 <div class="play-btn">📖</div>
             </div>
-
-            <div class="materi-card" onclick="openMateri('nutrisi')">
+            <div class="materi-card" onclick="location.href='materi_nutrisi.html'">
                 <div class="icon-box">🥗</div>
-                <div class="materi-info">
-                    <h3>Nutrisi & Pijat Oksitosin</h3>
-                    <p>Makanan sehat dan tips ASI lancar.</p>
-                </div>
+                <div class="materi-info"><h3>Nutrisi Ibu Nifas</h3><p>Pola makan untuk pemulihan energi.</p></div>
                 <div class="play-btn">📖</div>
             </div>
-
-            <div class="materi-card" onclick="openMateri('luka')">
+            <div class="materi-card" onclick="location.href='materi_pijat_oksitosin.html'">
+                <div class="icon-box">👐</div>
+                <div class="materi-info"><h3>Pijat Oksitosin</h3><p>Teknik melancarkan produksi ASI.</p></div>
+                <div class="play-btn">📖</div>
+            </div>
+            <div class="materi-card" onclick="location.href='materi_luka_jahitan.html'">
                 <div class="icon-box">🌸</div>
-                <div class="materi-info">
-                    <h3>Perawatan Luka Perineum</h3>
-                    <p>Menjaga kebersihan jahitan agar cepat kering.</p>
-                </div>
+                <div class="materi-info"><h3>Perawatan Luka</h3><p>Tips menjaga kebersihan jahitan.</p></div>
                 <div class="play-btn">📖</div>
             </div>
 
-            <p class="section-title" style="margin-top: 20px;">Psikologi</p>
-
-            <div class="materi-card" onclick="openMateri('mental')">
+            <p class="section-title">Kesehatan Mental</p>
+            <div class="materi-card" onclick="location.href='materi_baby_blues.html'">
+                <div class="icon-box">☁️</div>
+                <div class="materi-info"><h3>Mengenal Baby Blues</h3><p>Perasaan sedih sementara pasca melahirkan.</p></div>
+                <div class="play-btn">📖</div>
+            </div>
+            <div class="materi-card" onclick="location.href='materi_depresi_postpartum.html'">
                 <div class="icon-box">🧠</div>
-                <div class="materi-info">
-                    <h3>Baby Blues & Depresi</h3>
-                    <p>Mengenali kesehatan mental pasca melahirkan.</p>
-                </div>
+                <div class="materi-info"><h3>Depresi Postpartum</h3><p>Gejala kesehatan mental yang perlu diwaspadai.</p></div>
                 <div class="play-btn">📖</div>
             </div>
         </main>
 
         <div class="footer-action">
-            <button class="btn-checklist" onclick="window.location.href='checklist_harian_ibu.html'">
-                Isi Checklist Harian <span>📝</span>
-            </button>
+            <button class="btn-checklist" onclick="location.href='checklist_harian_ibu.html'">Isi Checklist Harian 📝</button>
         </div>
     </div>
-
-    <div class="modal-overlay" id="modalOverlay" onclick="closeMateri()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">Judul Materi</h3>
-                <span class="close-modal" onclick="closeMateri()">&times;</span>
-            </div>
-            <div class="modal-body" id="modalBody">
-                </div>
-        </div>
-    </div>
-
-    <script>
-        const materiData = {
-            lochea: {
-                title: "Mengenal Lochea",
-                content: `
-                    Lochea adalah darah/cairan normal yang keluar dari jalan lahir setelah melahirkan.
-                    <ul>
-                        <li><b>Lochea Rubra (Hari 1-3):</b> Berwarna merah terang, berisi darah dan sisa jaringan.</li>
-                        <li><b>Lochea Serosa (Hari 4-10):</b> Berwarna kecokelatan atau merah muda.</li>
-                        <li><b>Lochea Alba (>Hari 10):</b> Berwarna putih kekuningan hingga jernih.</li>
-                    </ul>
-                    <i>Waspada jika lochea berbau busuk atau sangat menyengat!</i>
-                `
-            },
-            nutrisi: {
-                title: "Nutrisi & ASI",
-                content: `
-                    Ibu memerlukan makanan bergizi untuk pemulihan dan kualitas ASI:
-                    <ul>
-                        <li><b>Protein:</b> Telur, ikan, tempe, dan daging untuk penyembuhan luka.</li>
-                        <li><b>Cairan:</b> Minum air putih minimal 3 liter per hari.</li>
-                        <li><b>Pijat Oksitosin:</b> Lakukan pijatan lembut di area punggung untuk membantu pengeluaran ASI.</li>
-                    </ul>
-                `
-            },
-            luka: {
-                title: "Perawatan Luka Jahitan",
-                content: `
-                    Tips merawat luka perineum (jahitan) agar tidak infeksi:
-                    <ul>
-                        <li>Bersihkan dengan air bersih setelah BAK/BAB.</li>
-                        <li>Keringkan dengan tisu atau handuk bersih dengan cara ditepuk lembut (jangan digosok).</li>
-                        <li>Ganti pembalut secara teratur.</li>
-                        <li>Cuci tangan sebelum dan sesudah membersihkan luka.</li>
-                    </ul>
-                `
-            },
-            mental: {
-                title: "Baby Blues & Depresi",
-                content: `
-                    <b>Baby Blues:</b> Biasanya muncul hari ke-3 sampai ke-10. Ibu mudah menangis, cemas, dan lelah. Ini normal karena perubahan hormon.
-                    <br><br>
-                    <b>Depresi Postpartum:</b> Jika rasa sedih berlebihan berlangsung lebih dari 2 minggu, segera hubungi tenaga kesehatan.
-                    <br><br>
-                    <i>Dukungan keluarga sangat penting di masa ini.</i>
-                `
-            }
-        };
-
-        function openMateri(key) {
-            const data = materiData[key];
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalBody').innerHTML = data.content;
-            document.getElementById('modalOverlay').style.display = 'flex';
-        }
-
-        function closeMateri() {
-            document.getElementById('modalOverlay').style.display = 'none';
-        }
-    </script>
 </body>
 </html>

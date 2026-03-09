@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mengenal Lochea - e-NifasCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3dbda7;
+            --accent: #f06292;
+            --bg-soft: #f5fffd;
+            --text-dark: #444;
+            --danger: #ff5252;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-nav {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .materi-title {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .infographic-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+
+        .infographic-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .fase-item {
+            background: #f9fbfb;
+            padding: 15px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .fase-item h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .fase-item p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .warning-card {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px dashed var(--danger);
+            margin-top: 20px;
+        }
+
+        .warning-card h5 {
+            color: var(--danger);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .warning-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warning-list li {
+            font-size: 0.85rem;
+            color: #b03a2e;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .warning-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--danger);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-nav">
+            <a href="materi_edukasi_nifas.html" class="back-nav">← Kembali</a>
+        </div>
+
+        <div class="content-card">
+            <h1 class="materi-title">Mengenal Lochea</h1>
+            
+            <p class="intro-text">
+                Lochea adalah darah atau cairan yang keluar dari jalan lahir setelah ibu melahirkan. Cairan ini berasal dari sisa darah, jaringan, dan lendir dari dalam rahim yang sedang dalam proses penyembuhan.
+            </p>
+
+            <div class="infographic-container">
+                <img src="lochea.png" alt="Tahapan Lochea">
+            </div>
+
+            <div class="fase-detail">
+                <h2 class="section-subtitle">Tahapan Perubahan Warna</h2>
+                
+                <div class="fase-item">
+                    <h4>Lochea Rubra (Hari ke 1–3)</h4>
+                    <p>Berwarna merah segar, berisi darah dan sisa jaringan, jumlah cukup banyak.</p>
+                </div>
+
+                <div class="fase-item">
+                    <h4>Lochea Serosa (Hari ke 4–10)</h4>
+                    <p>Berwarna merah muda atau kecokelatan dengan jumlah yang mulai berkurang.</p>
+                </div>
+
+                <div class="fase-item">
+                    <h4>Lochea Alba (Hari ke 10 – 6 Minggu)</h4>
+                    <p>Berwarna putih kekuningan hingga jernih dengan jumlah cairan yang tinggal sedikit.</p>
+                </div>
+            </div>
+
+            <div class="warning-card">
+                <h5>🚨 Waspada Tanda Bahaya!</h5>
+                <p style="font-size: 0.85rem; margin-bottom: 10px; color: #555;">Segera periksa ke bidan atau dokter jika:</p>
+                <ul class="warning-list">
+                    <li>Keluar darah sangat banyak (ganti pembalut tiap jam).</li>
+                    <li>Cairan berbau sangat busuk atau menyengat.</li>
+                    <li>Muncul gumpalan darah yang sangat besar.</li>
+                    <li>Perdarahan tiba-tiba bertambah banyak lagi.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
